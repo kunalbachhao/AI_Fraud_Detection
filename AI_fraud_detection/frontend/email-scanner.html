@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Email Scanner - Detect phishing attempts and suspicious content in emails.">
+    <title>CyberSheild | Email Scanner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
+</head>
+<body>
+    <!-- Mobile Toggle Button -->
+    <button id="mobileToggle" class="sidebar-toggle hidden" aria-label="Toggle sidebar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 12h18M3 6h18M3 18h18"/>
+        </svg>
+    </button>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <div class="logo-icon">C</div>
+                <span class="logo-text">CyberSheild</span>
+            </div>
+            <button id="sidebarToggle" class="toggle-btn" aria-label="Collapse sidebar">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 18l-6-6 6-6"/>
+                </svg>
+            </button>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">
+                        <span class="icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                                <polyline points="9 22 9 12 15 12 15 22"/>
+                            </svg>
+                        </span>
+                        <span class="nav-text">Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="email-scanner.html" class="nav-link active">
+                        <span class="icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                        </span>
+                        <span class="nav-text">Email Scanner</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="url-checker.html" class="nav-link">
+                        <span class="icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                            </svg>
+                        </span>
+                        <span class="nav-text">URL Checker</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="file-analyzer.html" class="nav-link">
+                        <span class="icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/>
+                                <polyline points="13 2 13 9 20 9"/>
+                            </svg>
+                        </span>
+                        <span class="nav-text">File Analyzer</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="voice-scanner.html" class="nav-link">
+                        <span class="icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                                <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                                <line x1="12" y1="19" x2="12" y2="23"/>
+                                <line x1="8" y1="23" x2="16" y2="23"/>
+                            </svg>
+                        </span>
+                        <span class="nav-text">Voice Scanner</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="header">
+            <h1>Email Scanner</h1>
+            <div class="user-info">
+                <span>Detect phishing & threats</span>
+                <div class="avatar">SA</div>
+            </div>
+        </header>
+
+        <div class="scanner-container">
+            <h2 class="scanner-title">Scan Email Content</h2>
+            <p class="subtitle">Paste email content below to analyze for phishing attempts, malware links, and suspicious patterns.</p>
+            
+            <!-- File Upload -->
+            <div class="input-group">
+                <label class="input-label">Upload Email File <span style="color:var(--text-secondary);font-weight:400">(recommended)</span></label>
+                <div class="file-upload" onclick="document.getElementById('emailFileInput').click()">
+                    <input type="file" id="emailFileInput" class="file-input" accept=".eml,.txt">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--accent-green);margin-bottom:8px">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="17 8 12 3 7 8"/>
+                        <line x1="12" y1="3" x2="12" y2="15"/>
+                    </svg>
+                    <p id="emailFileLabel">Choose .eml or .txt file</p>
+                    <p class="file-upload-subtitle">Click to browse</p>
+                </div>
+                <button id="clearFileBtn" style="margin-top:8px;background:none;border:1px solid var(--border-color);color:var(--text-secondary);padding:6px 14px;border-radius:6px;cursor:pointer;font-size:0.85rem;">x Clear File</button>
+            </div>
+
+            <div style="text-align:center;color:var(--text-secondary);margin:8px 0;font-size:0.9rem;">- or paste email text below -</div>
+
+            <!-- Text Input -->
+            <div class="input-group">
+                <label for="emailContent" class="input-label">Email Content</label>
+                <textarea id="emailContent" class="textarea" placeholder="Paste the full email content here...Include headers, body, and any links."></textarea>
+            </div>
+            
+            <button id="scanEmailBtn" class="btn btn-full">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+                Scan Email
+            </button>
+            
+            <div id="emailResults" class="results hidden">
+                <!-- Results will be inserted here by JavaScript -->
+            </div>
+            
+            <div class="tips">
+                <h3>Tips for Effective Email Scanning</h3>
+                <ul>
+                    <li>Include full email headers for more accurate analysis</li>
+                    <li>Paste all links exactly as they appear in the email</li>
+                    <li>Include attachments as separate file scans</li>
+                    <li>Check for spelling errors and generic greetings</li>
+                </ul>
+            </div>
+        </div>
+
+                <footer class="footer">
+            <p>CyberSheild Email Scanner v2.1 | Real-time threat intelligence updated hourly</p>
+            <p>Report phishing emails to: <strong>phishing@cybersheild.example.com</strong></p>
+        </footer>
+    </main>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+amazon.in
+amazon.com
+google.com
+facebook.com
+youtube.com
+instagram.com
+microsoft.com
+apple.com
+paypal.com
+linkedin.com

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="File Analyzer - Scan files for malware, viruses, and suspicious code patterns.">
+    <title>CyberSheild | File Analyzer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
+</head>
+<body>
+    <!-- Mobile Toggle Button -->
+    <button id="mobileToggle" class="sidebar-toggle hidden" aria-label="Toggle sidebar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 12h18M3 6h18M3 18h18"/>
+        </svg>
+    </button>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <div class="logo-icon">C</div>
+                <span class="logo-text">CyberSheild</span>
+            </div>
+            <button id="sidebarToggle" class="toggle-btn" aria-label="Collapse sidebar">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 18l-6-6 6-6"/>
+                </svg>
+            </button>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">
+                        <span class="icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                                <polyline points="9 22 9 12 15 12 15 22"/>
+                            </svg>
+                        </span>
+                        <span class="nav-text">Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="email-scanner.html" class="nav-link">
+                        <span class="icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                        </span>
+                        <span class="nav-text">Email Scanner</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="url-checker.html" class="nav-link">
+                        <span class="icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                            </svg>
+                        </span>
+                        <span class="nav-text">URL Checker</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="file-analyzer.html" class="nav-link active">
+                        <span class="icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/>
+                                <polyline points="13 2 13 9 20 9"/>
+                            </svg>
+                        </span>
+                        <span class="nav-text">File Analyzer</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="voice-scanner.html" class="nav-link">
+                        <span class="icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                                <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                                <line x1="12" y1="19" x2="12" y2="23"/>
+                                <line x1="8" y1="23" x2="16" y2="23"/>
+                            </svg>
+                        </span>
+                        <span class="nav-text">Voice Scanner</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="header">
+            <h1>File Analyzer</h1>
+            <div class="user-info">
+                <span>Detect malware & threats</span>
+                <div class="avatar">SA</div>
+            </div>
+        </header>
+
+        <div class="scanner-container">
+            <h2 class="scanner-title">Scan Files for Threats</h2>
+            <p class="subtitle">Upload files to analyze for malware, viruses, suspicious code patterns, and other security threats.</p>
+            
+            <div class="input-group">
+                <label for="fileInput" class="input-label">Select File</label>
+                <div class="file-upload" id="fileUploadArea">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="17 8 12 3 7 8"/>
+                        <line x1="12" y1="3" x2="12" y2="15"/>
+                    </svg>
+                    <p>Drag and drop files here or click to browse</p>
+                    <p class="file-upload-subtitle">Maximum file size: 100MB</p>
+                    <input type="file" id="fileInput" class="file-input" accept=".exe,.dll,.pdf,.doc,.docx,.xls,.xlsx,.js,.zip,.rar,.7z">
+                </div>
+                <div id="selectedFileName" class="selected-file"></div>
+            </div>
+            
+            <button id="scanFileBtn" class="btn btn-full">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+                Scan File
+            </button>
+            
+            <div id="fileResults" class="results hidden">
+                <!-- Results will be inserted here by JavaScript -->
+            </div>
+            
+            <div class="tips">
+                <h3>File Safety Guidelines</h3>
+                <ul>
+                    <li>Always scan executable files (.exe, .bat, .sh) before running</li>
+                    <li>Enable macro protection for Office documents</li>
+                    <li>Use sandbox environments for unknown files</li>
+                    <li>Keep antivirus software updated</li>
+                </ul>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>CyberSheild File Analyzer v2.1 | Multi-engine malware detection</p>
+            <p>Submit suspicious files for analysis: <strong>malware@cybersheild.example.com</strong></p>
+        </footer>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Additional file upload interaction
+        document.addEventListener('DOMContentLoaded', function() {
+            const fileInput = document.getElementById('fileInput');
+            const fileUploadArea = document.getElementById('fileUploadArea');
+            const selectedFileName = document.getElementById('selectedFileName');
+            
+            if (fileInput && fileUploadArea) {
+                fileUploadArea.addEventListener('click', () => fileInput.click());
+                
+                fileInput.addEventListener('change', function() {
+                    if (this.files.length > 0) {
+                        const file = this.files[0];
+                        selectedFileName.textContent = `Selected: ${file.name} (${formatFileSize(file.size)})`;
+                        selectedFileName.style.color = 'var(--accent-green)';
+                    } else {
+                        selectedFileName.textContent = '';
+                    }
+                });
+                
+                // Drag and drop
+                fileUploadArea.addEventListener('dragover', (e) => {
+                    e.preventDefault();
+                    fileUploadArea.style.borderColor = 'var(--accent-green)';
+                    fileUploadArea.style.backgroundColor = 'rgba(0, 237, 100, 0.05)';
+                });
+                
+                fileUploadArea.addEventListener('dragleave', () => {
+                    fileUploadArea.style.borderColor = '';
+                    fileUploadArea.style.backgroundColor = '';
+                });
+                
+                fileUploadArea.addEventListener('drop', (e) => {
+                    e.preventDefault();
+                    fileUploadArea.style.borderColor = '';
+                    fileUploadArea.style.backgroundColor = '';
+                    if (e.dataTransfer.files.length) {
+                        fileInput.files = e.dataTransfer.files;
+                        const event = new Event('change', { bubbles: true });
+                        fileInput.dispatchEvent(event);
+                    }
+                });
+            }
+            
+            function formatFileSize(bytes) {
+                if (bytes === 0) return '0 Bytes';
+                const k = 1024;
+                const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+                const i = Math.floor(Math.log(bytes) / Math.log(k));
+                return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+            }
+        });
+    </script>
+</body>
+</html>

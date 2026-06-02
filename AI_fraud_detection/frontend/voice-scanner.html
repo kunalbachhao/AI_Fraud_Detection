@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Voice Scanner - Detect deepfake audio, voice spoofing, and manipulated recordings.">
+    <title>CyberSheild | Voice Scanner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
+</head>
+<body>
+    <!-- Mobile Toggle Button -->
+    <button id="mobileToggle" class="sidebar-toggle hidden" aria-label="Toggle sidebar">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M3 12h18M3 6h18M3 18h18"/>
+        </svg>
+    </button>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <div class="logo-icon">C</div>
+                <span class="logo-text">CyberGuard</span>
+            </div>
+            <button id="sidebarToggle" class="toggle-btn" aria-label="Collapse sidebar">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M15 18l-6-6 6-6"/>
+                </svg>
+            </button>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">
+                        <span class="icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                                <polyline points="9 22 9 12 15 12 15 22"/>
+                            </svg>
+                        </span>
+                        <span class="nav-text">Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="email-scanner.html" class="nav-link">
+                        <span class="icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                        </span>
+                        <span class="nav-text">Email Scanner</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="url-checker.html" class="nav-link">
+                        <span class="icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                            </svg>
+                        </span>
+                        <span class="nav-text">URL Checker</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="file-analyzer.html" class="nav-link">
+                        <span class="icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/>
+                                <polyline points="13 2 13 9 20 9"/>
+                            </svg>
+                        </span>
+                        <span class="nav-text">File Analyzer</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="voice-scanner.html" class="nav-link active">
+                        <span class="icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
+                                <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                                <line x1="12" y1="19" x2="12" y2="23"/>
+                                <line x1="8" y1="23" x2="16" y2="23"/>
+                            </svg>
+                        </span>
+                        <span class="nav-text">Voice Scanner</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="header">
+            <h1>Voice Scanner</h1>
+            <div class="user-info">
+                <span>Detect audio manipulation</span>
+                <div class="avatar">SA</div>
+            </div>
+        </header>
+
+        <div class="scanner-container">
+            <h2 class="scanner-title">Analyze Audio for Manipulation</h2>
+            <p class="subtitle">Upload audio files to detect deepfake audio, voice spoofing, and artificial manipulation.</p>
+            
+            <div class="input-group">
+                <label for="audioInput" class="input-label">Select Audio File</label>
+                <div class="file-upload" id="audioUploadArea">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18V5l12-2v13"/>
+                        <path d="M9 9l12-2"/>
+                        <circle cx="6" cy="18" r="3"/>
+                        <circle cx="18" cy="16" r="3"/>
+                    </svg>
+                    <p>Drag and drop audio files here or click to browse</p>
+                    <p class="file-upload-subtitle">Supported formats: MP3, WAV, OGG, M4A (max 50MB)</p>
+                    <input type="file" id="audioInput" class="file-input" accept=".mp3,.wav,.ogg,.m4a,.aac">
+                </div>
+                <div id="selectedAudioName" class="selected-file"></div>
+            </div>
+            
+            <div class="input-group">
+                <p class="input-label">Or record audio directly:</p>
+                <div class="recording-controls">
+                    <button id="recordBtn" class="btn" style="background-color: var(--bg-card); color: var(--text-primary); border: 1px solid var(--border-color);">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <circle cx="12" cy="12" r="3"/>
+                        </svg>
+                        Start Recording
+                    </button>
+                    <div id="recordingStatus" class="recording-status hidden">
+                        <div class="recording-indicator"></div>
+                        <span>Recording... 00:00</span>
+                    </div>
+                </div>
+            </div>
+            
+            <button id="scanVoiceBtn" class="btn btn-full">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 15 17 10"/>
+                    <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+                Scan Voice
+            </button>
+            
+            <div id="voiceResults" class="results hidden">
+                <!-- Results will be inserted here by JavaScript -->
+            </div>
+            
+            <div class="tips">
+                <h3>Voice Security Tips</h3>
+                <ul>
+                    <li>Verify unusual voice requests through secondary channels</li>
+                    <li>Be cautious of audio messages requesting sensitive information</li>
+                    <li>Check for background noise consistency in suspicious recordings</li>
+                    <li>Use voice biometrics for critical authentication</li>
+                </ul>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>CyberSheild Voice Scanner v2.1 | AI-powered deepfake detection</p>
+            <p>Report suspected voice fraud: <strong>voicefraud@cybersheild.example.com</strong></p>
+        </footer>
+    </main>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Additional audio upload interaction
+        document.addEventListener('DOMContentLoaded', function() {
+            const audioInput = document.getElementById('audioInput');
+            const audioUploadArea = document.getElementById('audioUploadArea');
+            const selectedAudioName = document.getElementById('selectedAudioName');
+            const recordBtn = document.getElementById('recordBtn');
+            const recordingStatus = document.getElementById('recordingStatus');
+            
+            if (audioInput && audioUploadArea) {
+                audioUploadArea.addEventListener('click', () => audioInput.click());
+                
+                audioInput.addEventListener('change', function() {
+                    if (this.files.length > 0) {
+                        const file = this.files[0];
+                        selectedAudioName.textContent = `Selected: ${file.name} (${formatFileSize(file.size)})`;
+                        selectedAudioName.style.color = 'var(--accent-green)';
+                    } else {
+                        selectedAudioName.textContent = '';
+                    }
+                });
+                
+                // Drag and drop
+                audioUploadArea.addEventListener('dragover', (e) => {
+                    e.preventDefault();
+                    audioUploadArea.style.borderColor = 'var(--accent-green)';
+                    audioUploadArea.style.backgroundColor = 'rgba(0, 237, 100, 0.05)';
+                });
+                
+                audioUploadArea.addEventListener('dragleave', () => {
+                    audioUploadArea.style.borderColor = '';
+                    audioUploadArea.style.backgroundColor = '';
+                });
+                
+                audioUploadArea.addEventListener('drop', (e) => {
+                    e.preventDefault();
+                    audioUploadArea.style.borderColor = '';
+                    audioUploadArea.style.backgroundColor = '';
+                    if (e.dataTransfer.files.length) {
+                        audioInput.files = e.dataTransfer.files;
+                        const event = new Event('change', { bubbles: true });
+                        audioInput.dispatchEvent(event);
+                    }
+                });
+            }
+            
+            // Recording simulation
+            if (recordBtn && recordingStatus) {
+                let isRecording = false;
+                let seconds = 0;
+                let timerInterval;
+                
+                recordBtn.addEventListener('click', function() {
+                    if (!isRecording) {
+                        // Start recording simulation
+                        isRecording = true;
+                        recordBtn.innerHTML = `
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="6" y="6" width="12" height="12"/>
+                            </svg>
+                            Stop Recording
+                        `;
+                        recordBtn.style.backgroundColor = '#ef4444';
+                        recordBtn.style.color = 'white';
+                        recordingStatus.classList.remove('hidden');
+                        
+                        // Timer simulation
+                        seconds = 0;
+                        timerInterval = setInterval(() => {
+                            seconds++;
+                            const minutes = Math.floor(seconds / 60);
+                            const secs = seconds % 60;
+                            recordingStatus.querySelector('span').textContent = 
+                                `Recording... ${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+                        }, 1000);
+                    } else {
+                        // Stop recording simulation
+                        isRecording = false;
+                        clearInterval(timerInterval);
+                        recordBtn.innerHTML = `
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <circle cx="12" cy="12" r="3"/>
+                            </svg>
+                            Start Recording
+                        `;
+                        recordBtn.style.backgroundColor = '';
+                        recordBtn.style.color = '';
+                        recordingStatus.classList.add('hidden');
+                        
+                        // Simulate file selection
+                        selectedAudioName.textContent = 'Selected: recording.wav (2.4 MB)';
+                        selectedAudioName.style.color = 'var(--accent-green)';
+                        
+                        // Create a fake file object for the scan
+                        const fakeFile = new File([''], 'recording.wav', { type: 'audio/wav' });
+                        const dataTransfer = new DataTransfer();
+                        dataTransfer.items.add(fakeFile);
+                        audioInput.files = dataTransfer.files;
+                    }
+                });
+            }
+            
+            function formatFileSize(bytes) {
+                if (bytes === 0) return '0 Bytes';
+                const k = 1024;
+                const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+                const i = Math.floor(Math.log(bytes) / Math.log(k));
+                return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+            }
+        });
+    </script>
+</body>
+</html>
