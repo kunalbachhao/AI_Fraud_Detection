@@ -1,241 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Cybersecurity Dashboard - Monitor and analyze security threats across email, URLs, files, and voice communications.">
-    <title>CyberSheild | Security Dashboard</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Spam Email Checker - classify email messages as spam or not spam.">
+  <title>SpamShield | Spam Email Checker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Mobile Toggle Button -->
-    <button id="mobileToggle" class="sidebar-toggle hidden" aria-label="Toggle sidebar">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M3 12h18M3 6h18M3 18h18"/>
-        </svg>
-    </button>
+<main class="app">
+  <header class="header">
+    <div>
+      <div class="brand">SpamShield</div>
+      <h1>Spam Email Checker</h1>
+      <p>Paste an email or upload a .txt / .eml file to check whether it is spam.</p>
+    </div>
+    <div id="apiStatus" class="status-pill">Checking API...</div>
+  </header>
 
-    <!-- Sidebar -->
-    <aside class="sidebar" id="sidebar">
-        <div class="sidebar-header">
-            <div class="logo">
-                <div class="logo-icon">C</div>
-                <span class="logo-text">CyberSheild</span>
-            </div>
-            <button id="sidebarToggle" class="toggle-btn" aria-label="Collapse sidebar">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M15 18l-6-6 6-6"/>
-                </svg>
-            </button>
-        </div>
-        <nav>
-            <ul class="nav-links">
-                <li class="nav-item">
-                    <a href="index.html" class="nav-link active">
-                        <span class="icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-                                <polyline points="9 22 9 12 15 12 15 22"/>
-                            </svg>
-                        </span>
-                        <span class="nav-text">Dashboard</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="email-scanner.html" class="nav-link">
-                        <span class="icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                                <polyline points="22,6 12,13 2,6"/>
-                            </svg>
-                        </span>
-                        <span class="nav-text">Email Scanner</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="url-checker.html" class="nav-link">
-                        <span class="icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
-                                <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
-                            </svg>
-                        </span>
-                        <span class="nav-text">URL Checker</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="file-analyzer.html" class="nav-link">
-                        <span class="icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/>
-                                <polyline points="13 2 13 9 20 9"/>
-                            </svg>
-                        </span>
-                        <span class="nav-text">File Analyzer</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="voice-scanner.html" class="nav-link">
-                        <span class="icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
-                                <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
-                                <line x1="12" y1="19" x2="12" y2="23"/>
-                                <line x1="8" y1="23" x2="16" y2="23"/>
-                            </svg>
-                        </span>
-                        <span class="nav-text">Voice Scanner</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </aside>
+  <section class="card checker">
+    <div class="field">
+      <label for="subject">Subject <span>(optional)</span></label>
+      <input id="subject" type="text" maxlength="5000" placeholder="e.g. Congratulations! You won a prize">
+    </div>
+    <div class="field">
+      <label for="emailContent">Email content</label>
+      <textarea id="emailContent" maxlength="100000" placeholder="Paste the email message here..."></textarea>
+      <div class="counter"><span id="charCount">0</span> / 100000</div>
+    </div>
+    <div class="actions">
+      <label class="upload-btn">Upload .txt / .eml<input id="fileInput" type="file" accept=".txt,.eml"></label>
+      <button id="clearBtn" class="secondary">Clear</button>
+      <button id="checkBtn" class="primary">Check Email</button>
+    </div>
+    <p id="fileName" class="file-name"></p>
+  </section>
 
-    <!-- Main Content -->
-    <main class="main-content">
-        <header class="header">
-            <h1>Security Dashboard</h1>
-            <div class="user-info">
-                <span>Welcome, Security Analyst</span>
-                <div class="avatar">SA</div>
-            </div>
-        </header>
+  <section id="result" class="card result hidden" aria-live="polite"></section>
 
-        <section class="dashboard-overview">
-            <h2>Security Overview</h2>
-            <p class="subtitle">Monitor and analyze threats across all channels</p>
-            
-            <div class="dashboard-cards">
-                <a href="email-scanner.html" class="card dashboard-card">
-                    <div class="card-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                            <polyline points="22,6 12,13 2,6"/>
-                        </svg>
-                    </div>
-                    <h3>Email Scanner</h3>
-                    <p>Detect phishing attempts, malware links, and suspicious content in emails.</p>
-                    <div class="card-stats">
-                        <span class="stat">24h scans: 1,243</span>
-                        <span class="stat status-safe">98% safe</span>
-                    </div>
-                </a>
-                
-                <a href="url-checker.html" class="card dashboard-card">
-                    <div class="card-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
-                            <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
-                        </svg>
-                    </div>
-                    <h3>URL Checker</h3>
-                    <p>Analyze URLs for malicious content, phishing sites, and security threats.</p>
-                    <div class="card-stats">
-                        <span class="stat">24h scans: 892</span>
-                        <span class="stat status-warning">94% safe</span>
-                    </div>
-                </a>
-                
-                <a href="file-analyzer.html" class="card dashboard-card">
-                    <div class="card-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/>
-                            <polyline points="13 2 13 9 20 9"/>
-                        </svg>
-                    </div>
-                    <h3>File Analyzer</h3>
-                    <p>Scan files for malware, viruses, and suspicious code patterns.</p>
-                    <div class="card-stats">
-                        <span class="stat">24h scans: 567</span>
-                        <span class="stat status-safe">99% safe</span>
-                    </div>
-                </a>
-                
-                <a href="voice-scanner.html" class="card dashboard-card">
-                    <div class="card-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/>
-                            <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
-                            <line x1="12" y1="19" x2="12" y2="23"/>
-                            <line x1="8" y1="23" x2="16" y2="23"/>
-                        </svg>
-                    </div>
-                    <h3>Voice Scanner</h3>
-                    <p>Detect deepfake audio, voice spoofing, and manipulated recordings.</p>
-                    <div class="card-stats">
-                        <span class="stat">24h scans: 134</span>
-                        <span class="stat status-danger">87% safe</span>
-                    </div>
-                </a>
-            </div>
-        </section>
-
-        <section class="recent-activity">
-            <h2>Recent Activity</h2>
-            <div class="activity-list">
-                <div class="activity-item">
-                    <div class="activity-icon status-safe">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                            <polyline points="22 4 12 14.01 9 11.01"/>
-                        </svg>
-                    </div>
-                    <div class="activity-details">
-                        <p>Email scan completed - No threats detected</p>
-                        <span class="activity-time">2 minutes ago</span>
-                    </div>
-                </div>
-                <div class="activity-item">
-                    <div class="activity-icon status-warning">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
-                            <line x1="12" y1="9" x2="12" y2="13"/>
-                            <line x1="12" y1="17" x2="12.01" y2="17"/>
-                        </svg>
-                    </div>
-                    <div class="activity-details">
-                        <p>Suspicious URL detected - Requires review</p>
-                        <span class="activity-time">15 minutes ago</span>
-                    </div>
-                </div>
-                <div class="activity-item">
-                    <div class="activity-icon status-safe">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                            <polyline points="22 4 12 14.01 9 11.01"/>
-                        </svg>
-                    </div>
-                    <div class="activity-details">
-                        <p>File analysis completed - Clean</p>
-                        <span class="activity-time">1 hour ago</span>
-                    </div>
-                </div>
-                <div class="activity-item">
-                    <div class="activity-icon status-danger">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"/>
-                            <line x1="15" y1="9" x2="9" y2="15"/>
-                            <line x1="9" y1="9" x2="15" y2="15"/>
-                        </svg>
-                    </div>
-                    <div class="activity-details">
-                        <p>Potential deepfake audio detected</p>
-                        <span class="activity-time">3 hours ago</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <footer class="footer">
-            <p>CyberSheild Security Dashboard v2.1 | Last updated: Today, 10:42 AM</p>
-            <p>For security emergencies, contact: <strong>security@cyberguard.example.com</strong></p>
-        </footer>
-    </main>
-
-    <script src="js/main.js"></script>
+  <section class="card info">
+    <h2>How it works</h2>
+    <div class="steps">
+      <div><strong>1</strong><span>Your email text is sent to the local API.</span></div>
+      <div><strong>2</strong><span>TF-IDF converts the text into numerical features.</span></div>
+      <div><strong>3</strong><span>Logistic Regression predicts spam probability.</span></div>
+    </div>
+    <p class="note">This is an ML prediction, not a guarantee. Do not open suspicious links or share sensitive information based only on this result.</p>
+  </section>
+</main>
+<script src="js/main.js"></script>
 </body>
 </html>
